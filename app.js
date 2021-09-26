@@ -2,10 +2,12 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 require('dotenv/config');
 
 
 app.use(bodyParser.json());
+app.use(cors())
 
 //ROUTES
 const configuratorsRoutes = require('./routes/configurators');
@@ -13,7 +15,7 @@ const configuratorsRoutes = require('./routes/configurators');
 app.use('/configurators', configuratorsRoutes);
 
 app.get('/', (req, res) => {
-    res.send(('Cel mai dragut iubirici este iubiciul meu'));
+    res.send(('Home page'));
 })
 
 //Connect to DB
